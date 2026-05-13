@@ -1,0 +1,206 @@
+[
+  {
+    "id": "q1",
+    "topicId": "oop-basics",
+    "question": "Which of the following is not a pillar of OOP?",
+    "options": ["Encapsulation", "Inheritance", "Compilation", "Polymorphism"],
+    "correctAnswer": 2,
+    "explanation": "Compilation is a process of converting source code to bytecode, not a pillar of OOP."
+  },
+  {
+    "id": "q2",
+    "topicId": "oop-basics",
+    "question": "What is the main purpose of OOP?",
+    "options": ["To make code faster", "To provide a modular structure", "To reduce RAM usage", "To avoid using variables"],
+    "correctAnswer": 1,
+    "explanation": "OOP provides modularity and reusability through classes and objects."
+  },
+  {
+    "id": "q3",
+    "topicId": "classes-objects",
+    "question": "Which keyword is used to create an object in Java?",
+    "options": ["class", "void", "new", "static"],
+    "correctAnswer": 2,
+    "explanation": "The 'new' keyword allocates memory for an object on the heap."
+  },
+  {
+    "id": "q4",
+    "topicId": "inheritance",
+    "question": "Which keyword is used for inheritance in Java?",
+    "options": ["implements", "extends", "inherits", "using"],
+    "correctAnswer": 1,
+    "explanation": "'extends' is used for class inheritance, 'implements' is for interfaces."
+  },
+  {
+    "id": "q5",
+    "topicId": "polymorphism",
+    "question": "Method overloading is an example of:",
+    "options": ["Static Polymorphism", "Dynamic Polymorphism", "Inheritance", "Encapsulation"],
+    "correctAnswer": 0,
+    "explanation": "Method overloading is resolved at compile time, hence it is static polymorphism."
+  },
+  
+{
+"id": "oop-1",
+"topicId": "oop-basics",
+"question": "Which of these is NOT a pillar of OOP?",
+"options": ["Encapsulation", "Inheritance", "Compilation", "Polymorphism"],
+"correctAnswer": 2,
+"explanation": "Compilation is a programming process, not an OOP principle."
+},
+{
+"id": "oop-2",
+"topicId": "oop-basics",
+"question": "Which OOP principle hides implementation details?",
+"options": ["Inheritance", "Abstraction", "Compilation", "Association"],
+"correctAnswer": 1,
+"explanation": "Abstraction hides unnecessary implementation details from the user."
+},
+{
+"id": "oop-3",
+"topicId": "oop-basics",
+"question": "Which OOP principle binds data and methods together?",
+"options": ["Polymorphism", "Inheritance", "Encapsulation", "Abstraction"],
+"correctAnswer": 2,
+"explanation": "Encapsulation combines data and methods into a single unit."
+},
+{
+"id": "oop-4",
+"topicId": "oop-basics",
+"question": "Which principle allows code reusability?",
+"options": ["Inheritance", "Compilation", "Execution", "Association"],
+"correctAnswer": 0,
+"explanation": "Inheritance allows one class to reuse properties and methods of another."
+},
+{
+"id": "oop-5",
+"topicId": "oop-basics",
+"question": "Which concept allows one entity to take multiple forms?",
+"options": ["Encapsulation", "Polymorphism", "Abstraction", "Composition"],
+"correctAnswer": 1,
+"explanation": "Polymorphism allows methods or objects to behave differently."
+},
+{
+"id": "oop-6",
+"topicId": "oop-basics",
+"question": "Java is primarily which type of programming language?",
+"options": ["Procedural", "Functional", "Object-Oriented", "Assembly"],
+"correctAnswer": 2,
+"explanation": "Java is mainly designed as an object-oriented programming language."
+},
+{
+"id": "oop-7",
+"topicId": "oop-basics",
+"question": "Which feature improves security in OOP?",
+"options": ["Inheritance", "Encapsulation", "Looping", "Compilation"],
+"correctAnswer": 1,
+"explanation": "Encapsulation protects data from unauthorized access."
+},
+{
+"id": "oop-8",
+"topicId": "oop-basics",
+"question": "Which programming style focuses on objects and classes?",
+"options": ["Procedural", "Functional", "Object-Oriented", "Machine Language"],
+"correctAnswer": 2,
+"explanation": "Object-Oriented Programming is based on classes and objects."
+},
+{
+"id": "oop-9",
+"topicId": "oop-basics",
+"question": "Which feature reduces code duplication?",
+"options": ["Inheritance", "Exception Handling", "Compilation", "Packages"],
+"correctAnswer": 0,
+"explanation": "Inheritance helps reuse existing code."
+},
+{
+"id": "oop-10",
+"topicId": "oop-basics",
+"question": "Which OOP principle focuses on exposing only essential features?",
+"options": ["Encapsulation", "Abstraction", "Inheritance", "Polymorphism"],
+"correctAnswer": 1,
+"explanation": "Abstraction hides unnecessary implementation details."
+},
+{
+"id": "oop-11",
+"topicId": "oop-basics",
+"question": "Which OOP principle supports runtime method selection?",
+"options": ["Inheritance", "Encapsulation", "Polymorphism", "Abstraction"],
+"correctAnswer": 2,
+"explanation": "Runtime polymorphism enables method selection during execution."
+},
+{
+"id": "oop-12",
+"topicId": "oop-basics",
+"question": "What is the main aim of OOP?",
+"options": ["Increase hardware speed", "Model real-world entities", "Replace JVM", "Reduce memory completely"],
+"correctAnswer": 1,
+"explanation": "OOP models real-world entities using classes and objects."
+},
+{
+"id": "oop-13",
+"topicId": "oop-basics",
+"question": "Which of the following is an advantage of OOP?",
+"options": ["Poor security", "Code redundancy", "Modularity", "No reusability"],
+"correctAnswer": 2,
+"explanation": "OOP improves modularity and maintainability."
+},
+{
+"id": "oop-14",
+"topicId": "oop-basics",
+"question": "Which OOP principle provides flexibility through method overriding?",
+"options": ["Polymorphism", "Compilation", "Execution", "Abstraction"],
+"correctAnswer": 0,
+"explanation": "Polymorphism allows methods to behave differently."
+},
+{
+"id": "oop-15",
+"topicId": "oop-basics",
+"question": "Which concept improves maintainability in large applications?",
+"options": ["OOP", "Machine Code", "Assembly", "Binary"],
+"correctAnswer": 0,
+"explanation": "OOP organizes code into reusable and manageable components."
+},
+{
+"id": "oop-16",
+"topicId": "oop-basics",
+"question": "Which principle allows extending existing functionality?",
+"options": ["Inheritance", "Compilation", "Looping", "Syntax"],
+"correctAnswer": 0,
+"explanation": "Inheritance extends features of existing classes."
+},
+{
+"id": "oop-17",
+"topicId": "oop-basics",
+"question": "Which OOP principle hides data from direct access?",
+"options": ["Polymorphism", "Encapsulation", "Inheritance", "Packages"],
+"correctAnswer": 1,
+"explanation": "Encapsulation uses private members to hide data."
+},
+{
+"id": "oop-18",
+"topicId": "oop-basics",
+"question": "Which feature allows one interface with multiple implementations?",
+"options": ["Compilation", "Inheritance", "Polymorphism", "Looping"],
+"correctAnswer": 2,
+"explanation": "Polymorphism supports multiple implementations."
+},
+{
+"id": "oop-19",
+"topicId": "oop-basics",
+"question": "Which concept improves scalability of software?",
+"options": ["OOP", "Machine Code", "Binary", "Registers"],
+"correctAnswer": 0,
+"explanation": "OOP helps build scalable and maintainable systems."
+},
+{
+"id": "oop-20",
+"topicId": "oop-basics",
+"question": "Which of these is NOT an advantage of OOP?",
+"options": ["Reusability", "Security", "Maintainability", "Code Duplication"],
+"correctAnswer": 3,
+"explanation": "OOP reduces code duplication rather than increasing it."
+}
+
+
+
+]

@@ -1,0 +1,214 @@
+[
+  {
+    "id": "oop-basics",
+    "title": "Object-Oriented Programming (OOP)",
+    "description": "Introduction to the core concepts of OOP in Java.",
+    "notes": "OOP is a programming paradigm based on the concept of 'objects', which can contain data and code. The four pillars are Encapsulation, Inheritance, Polymorphism, and Abstraction.",
+    "examples": "Example: A 'Car' object with properties like 'color' and 'model', and methods like 'drive()'.",
+    "codeSnippets": "public class Car { String color; void drive() { System.out.println(\"Driving...\"); } }",
+    "interviewQuestions": [
+      "What is OOP?",
+      "What are the main pillars of OOP?",
+      "Why use OOP over procedural programming?"
+    ],
+    "practiceQuestions": [
+      "Create a class and instantiate an object of it.",
+      "Implement a class with multiple attributes and methods."
+    ]
+  },
+  {
+    "id": "classes-objects",
+    "title": "Classes & Objects",
+    "description": "Understanding the blueprint and the instance.",
+    "notes": "A class is a blueprint for creating objects. An object is an instance of a class.",
+    "examples": "Class: Human; Object: John, Jane.",
+    "codeSnippets": "class Student { String name; int age; } Student s1 = new Student();",
+    "interviewQuestions": [
+      "Difference between a class and an object?",
+      "What is the 'new' keyword in Java?"
+    ],
+    "practiceQuestions": [
+      "Define a class 'Book' with attributes title, author, and price."
+    ]
+  },
+  {
+    "id": "inheritance",
+    "title": "Inheritance",
+    "description": "Mechanism where one class acquires properties of another.",
+    "notes": "Inheritance allows a subclass to inherit fields and methods from a superclass using the 'extends' keyword.",
+    "examples": "Animal -> Dog",
+    "codeSnippets": "class Animal { void eat() {} } class Dog extends Animal { void bark() {} }",
+    "interviewQuestions": [
+      "What is the 'super' keyword?",
+      "Does Java support multiple inheritance?"
+    ],
+    "practiceQuestions": [
+      "Implement a hierarchy: Vehicle -> Car -> ElectricCar."
+    ]
+  },
+  {
+    "id": "polymorphism",
+    "title": "Polymorphism",
+    "description": "Ability of a message to be displayed in more than one form.",
+    "notes": "Static (Overloading) and Dynamic (Overriding) polymorphism.",
+    "examples": "Method Overloading vs Overriding.",
+    "codeSnippets": "class Calc { int add(int a, int b) { return a+b; } int add(int a, int b, int c) { return a+b+c; } }",
+    "interviewQuestions": [
+      "Difference between overloading and overriding?",
+      "What is dynamic method dispatch?"
+    ],
+    "practiceQuestions": [
+      "Create a class with overloaded methods for calculating area of different shapes."
+    ]
+  },
+  {
+    "id": "abstraction",
+    "title": "Abstraction",
+    "description": "Hiding internal details and showing only functionality.",
+    "notes": "Achieved via abstract classes and interfaces.",
+    "examples": "Abstract class 'Shape' with method 'draw()'.",
+    "codeSnippets": "abstract class Shape { abstract void draw(); } class Circle extends Shape { void draw() { System.out.println(\"Circle\"); } }",
+    "interviewQuestions": [
+      "Abstract class vs Interface?",
+      "When to use abstraction?"
+    ],
+    "practiceQuestions": [
+      "Design an abstract class 'Employee' with an abstract method 'calculateSalary()'."
+    ]
+  },
+  {
+    "id": "encapsulation",
+    "title": "Encapsulation",
+    "description": "Wrapping data and methods into a single unit.",
+    "notes": "Use private variables and public getter/setter methods.",
+    "examples": "Private field 'balance' in 'Account' class with getBalance() and setBalance().",
+    "codeSnippets": "class Account { private double balance; public double getBalance() { return balance; } }",
+    "interviewQuestions": [
+      "What is the benefit of encapsulation?",
+      "How do you achieve encapsulation in Java?"
+    ],
+    "practiceQuestions": [
+      "Create a 'Person' class with private fields and public getters/setters."
+    ]
+  },
+  {
+    "id": "collections",
+    "title": "Collections",
+    "description": "Framework to store and manipulate group of objects.",
+    "notes": "Includes List, Set, Map, Queue.",
+    "examples": "ArrayList for dynamic arrays, HashMap for key-value pairs.",
+    "codeSnippets": "List<String> list = new ArrayList<>(); list.add(\"Java\");",
+    "interviewQuestions": [
+      "ArrayList vs LinkedList?",
+      "How does HashMap work internally?"
+    ],
+    "practiceQuestions": [
+      "Implement a program to count occurrences of each word in a string using HashMap."
+    ]
+  },
+  {
+    "id": "exception-handling",
+    "title": "Exception Handling",
+    "description": "Mechanism to handle runtime errors.",
+    "notes": "Try-catch-finally blocks, throw, and throws keywords.",
+    "examples": "Handling ArithmeticException during division by zero.",
+    "codeSnippets": "try { int x = 10/0; } catch (Exception e) { System.out.println(e); }",
+    "interviewQuestions": [
+      "Checked vs Unchecked exceptions?",
+      "What is the purpose of the 'finally' block?"
+    ],
+    "practiceQuestions": [
+      "Write a program to handle multiple exceptions using a single catch block."
+    ]
+  },
+  {
+    "id": "multithreading",
+    "title": "Multithreading",
+    "description": "Concurrent execution of two or more parts of a program.",
+    "notes": "Thread class, Runnable interface, lifecycle of a thread.",
+    "examples": "Running two threads for printing 'Hello' and 'World' simultaneously.",
+    "codeSnippets": "class MyThread extends Thread { public void run() { System.out.println(\"Run\"); } }",
+    "interviewQuestions": [
+      "Thread vs Process?",
+      "What is the 'join()' method in Thread class?"
+    ],
+    "practiceQuestions": [
+      "Implement a producer-consumer problem using multithreading."
+    ]
+  },
+  {
+    "id": "streams-api",
+    "title": "Streams API",
+    "description": "Sequence of elements supporting sequential and parallel aggregate operations.",
+    "notes": "Filter, map, reduce, collect operations.",
+    "examples": "Filtering a list of integers to get only even numbers.",
+    "codeSnippets": "list.stream().filter(n -> n % 2 == 0).collect(Collectors.toList());",
+    "interviewQuestions": [
+      "Intermediate vs Terminal operations?",
+      "Why use Streams over for-loops?"
+    ],
+    "practiceQuestions": [
+      "Use Streams to find the sum of squares of all even numbers in a list."
+    ]
+  },
+  {
+    "id": "generics",
+    "title": "Generics",
+    "description": "Allows classes and methods to operate on objects of various types.",
+    "notes": "Type safety, Generic classes and methods.",
+    "examples": "Generic class 'Box<T>' that can hold any object type.",
+    "codeSnippets": "class Box<T> { T value; public void set(T val) { this.value = val; } }",
+    "interviewQuestions": [
+      "What is Type Erasure?",
+      "Wildcards in Java Generics?"
+    ],
+    "practiceQuestions": [
+      "Create a generic method to swap two elements in an array."
+    ]
+  },
+  {
+    "id": "lambda-expressions",
+    "title": "Lambda Expressions",
+    "description": "A short way to represent a functional interface.",
+    "notes": "Arrow function syntax, functional interfaces (@FunctionalInterface).",
+    "examples": "Implementing a simple addition using lambda.",
+    "codeSnippets": "(a, b) -> a + b",
+    "interviewQuestions": [
+      "What are functional interfaces?",
+      "Relationship between Lambdas and Anonymous Inner Classes?"
+    ],
+    "practiceQuestions": [
+      "Implement a custom functional interface and use it with a lambda expression."
+    ]
+  },
+  {
+    "id": "reflection-api",
+    "title": "Reflection API",
+    "description": "Ability to examine or modify the runtime behavior of applications.",
+    "notes": "Class, Method, Field, Constructor objects.",
+    "examples": "Getting all methods of a class at runtime.",
+    "codeSnippets": "Class<?> clazz = String.class; Method[] methods = clazz.getDeclaredMethods();",
+    "interviewQuestions": [
+      "What is the use of the Reflection API?",
+      "Security risks associated with Reflection?"
+    ],
+    "practiceQuestions": [
+      "Write a program to call a private method of a class using Reflection."
+    ]
+  },
+  {
+    "id": "synchronization",
+    "title": "Synchronization",
+    "description": "Controlling access of multiple threads to a shared resource.",
+    "notes": "Synchronized methods, blocks, Volatile keyword.",
+    "examples": "A shared counter incremented by multiple threads.",
+    "codeSnippets": "synchronized void increment() { count++; }",
+    "interviewQuestions": [
+      "What is a deadlock?",
+      "Synchronized block vs Synchronized method?"
+    ],
+    "practiceQuestions": [
+      "Create a thread-safe Singleton class in Java."
+    ]
+  }
+]

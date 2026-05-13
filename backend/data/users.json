@@ -1,0 +1,29 @@
+[
+  {
+    "id": "1778648995548",
+    "username": "testuser",
+    "email": "test@example.com",
+    "password": "$2a$10$qjH/kj5D3cY8WKJMGAcIUeCBdsk9aGLXSzMAvAm5Nzkzzgm24Ew2y",
+    "role": "user",
+    "progress": {},
+    "completedQuizzes": []
+  },
+  {
+    "id": "1778649903011",
+    "username": "arham_jafri",
+    "email": "aaaajjjafri@gmail.com",
+    "password": "$2a$10$XJisK.zxlDTAxG5TOkxto.Sx54QEFixYBUSAQYa1dNlBG/gT9ULUS",
+    "role": "admin",
+    "progress": {},
+    "completedQuizzes": []
+  },
+  {
+    "id": "1778651214605",
+    "username": "test_user",
+    "email": "syedarham@gmail.com",
+    "password": "$2a$10$DQCkbMBG9EuN6/aoSSKg9eVbKc/ckvMxiw5sj63oLqLBZmPDihSJ6",
+    "role": "user",
+    "progress": {},
+    "completedQuizzes": []
+  }
+]

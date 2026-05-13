@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply transition-colors duration-300 text-lg antialiased;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-all font-bold text-base shadow-glow hover:-translate-y-0.5 disabled:opacity-60 disabled:hover:translate-y-0;
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-white text-slate-900 rounded-lg border border-slate-200 hover:border-primary-300 hover:text-primary-700 hover:-translate-y-0.5 transition-all font-bold shadow-sm dark:bg-slate-900 dark:text-slate-100 dark:border-slate-700;
+}
+
+.card {
+  @apply bg-white/95 dark:bg-slate-900/90 rounded-lg shadow-lift border border-slate-200/80 dark:border-slate-800 p-6 transition-all backdrop-blur;
+}
+
+.eyebrow {
+  @apply text-xs font-black uppercase tracking-[0.22em] text-primary-600 dark:text-primary-400;
+}
+
+.input-field {
+  @apply w-full px-4 py-3 rounded-lg border border-slate-200 bg-white/90 outline-none transition-all focus:border-primary-400 focus:ring-4 focus:ring-primary-100 dark:bg-slate-950 dark:border-slate-700 dark:focus:ring-primary-900;
+}
+
+/* Custom Background Styles */
+.bg-main-gradient {
+  background:
+    radial-gradient(circle at 18% 12%, rgba(249, 115, 22, 0.14), transparent 28%),
+    linear-gradient(180deg, #fff7ed 0%, #f8fafc 34%, #eef2ff 100%);
+}
+
+.dark .bg-main-gradient {
+  background:
+    radial-gradient(circle at 18% 12%, rgba(249, 115, 22, 0.20), transparent 30%),
+    linear-gradient(180deg, #0f172a 0%, #111827 44%, #020617 100%);
+}
+
+.code-grid {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
