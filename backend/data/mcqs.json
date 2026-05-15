@@ -199,8 +199,166 @@
 "options": ["Reusability", "Security", "Maintainability", "Code Duplication"],
 "correctAnswer": 3,
 "explanation": "OOP reduces code duplication rather than increasing it."
-}
+},
 
-
-
+  {
+    "id": "co-01",
+    "topicId": "classes-objects",
+    "question": "What is a class in object-oriented programming?",
+    "options": ["A running instance in memory", "A blueprint or template for creating objects", "A built-in data type", "A function that returns values"],
+    "correctAnswer": 1,
+    "explanation": "A class is a blueprint or template that defines the properties and behaviors that objects of that type will have."
+  },
+  {
+    "id": "co-02",
+    "topicId": "classes-objects",
+    "question": "What is an object in OOP?",
+    "options": ["A method inside a class", "A variable declared globally", "An instance of a class", "A type of loop"],
+    "correctAnswer": 2,
+    "explanation": "An object is a specific instance of a class, created using the class as its blueprint."
+  },
+  {
+    "id": "co-03",
+    "topicId": "classes-objects",
+    "question": "Which keyword is commonly used to create an object in Java and C++?",
+    "options": ["create", "object", "new", "make"],
+    "correctAnswer": 2,
+    "explanation": "The 'new' keyword is used to instantiate (create) a new object from a class in Java and C++."
+  },
+  {
+    "id": "co-04",
+    "topicId": "classes-objects",
+    "question": "What is a constructor?",
+    "options": ["A method that destroys an object", "A special method called when an object is created", "A method that returns the class type", "A static variable in a class"],
+    "correctAnswer": 1,
+    "explanation": "A constructor is a special method that is automatically called when a new object is instantiated. It typically initializes the object's attributes."
+  },
+  {
+    "id": "co-05",
+    "topicId": "classes-objects",
+    "question": "Which of the following is a characteristic of instance variables?",
+    "options": ["They are shared across all objects of a class", "They belong to the class itself", "They are unique to each object instance", "They must always be public"],
+    "correctAnswer": 2,
+    "explanation": "Instance variables are unique to each object. Each object maintains its own copy of instance variables."
+  },
+  {
+    "id": "co-06",
+    "topicId": "classes-objects",
+    "question": "What is the difference between a class variable and an instance variable?",
+    "options": ["Class variables are private; instance variables are public", "Class variables are shared among all instances; instance variables are unique per object", "Instance variables are faster to access", "There is no difference"],
+    "correctAnswer": 1,
+    "explanation": "Class variables (static) are shared across all instances of the class, while instance variables hold unique values per object."
+  },
+  {
+    "id": "co-07",
+    "topicId": "classes-objects",
+    "question": "What does the 'this' keyword refer to inside a class method?",
+    "options": ["The parent class", "The current object instance", "A static reference to the class", "The return type of the method"],
+    "correctAnswer": 1,
+    "explanation": "'this' refers to the current object on which the method is being invoked, allowing access to its instance variables and methods."
+  },
+  {
+    "id": "co-08",
+    "topicId": "classes-objects",
+    "question": "How many objects can be created from a single class?",
+    "options": ["Only one", "Maximum two", "Exactly as many as the number of methods", "Any number"],
+    "correctAnswer": 3,
+    "explanation": "A class can be used to create any number of objects. Each object is an independent instance."
+  },
+  {
+    "id": "co-09",
+    "topicId": "classes-objects",
+    "question": "Which of the following best describes a method in a class?",
+    "options": ["A variable that stores object data", "A behavior or function defined inside a class", "A reference to another class", "A type of constructor"],
+    "correctAnswer": 1,
+    "explanation": "A method defines the behavior of a class. It is a function written inside a class that operates on the object's data."
+  },
+  {
+    "id": "co-10",
+    "topicId": "classes-objects",
+    "question": "What is a destructor?",
+    "options": ["A method that initializes an object", "A method called when an object is destroyed or goes out of scope", "A type of constructor with parameters", "A static method in a class"],
+    "correctAnswer": 1,
+    "explanation": "A destructor is a special method called automatically when an object is destroyed or goes out of scope, used to release resources."
+  },
+  {
+    "id": "co-11",
+    "topicId": "classes-objects",
+    "question": "What is method overloading?",
+    "options": ["Defining a method in a subclass with the same name as a parent method", "Having multiple methods with the same name but different parameters in the same class", "Calling a method more than once", "Inheriting methods from another class"],
+    "correctAnswer": 1,
+    "explanation": "Method overloading allows a class to have multiple methods with the same name but different parameter lists (type or count)."
+  },
+  {
+    "id": "co-12",
+    "topicId": "classes-objects",
+    "question": "Which access modifier makes a class member accessible only within its own class?",
+    "options": ["public", "protected", "private", "default"],
+    "correctAnswer": 2,
+    "explanation": "'private' restricts access to the member strictly within the class it is defined in."
+  },
+  {
+    "id": "co-13",
+    "topicId": "classes-objects",
+    "question": "What is a default constructor?",
+    "options": ["A constructor that takes multiple parameters", "A constructor provided by the compiler when no constructor is defined", "A constructor marked with the 'default' keyword", "A constructor that resets all values to zero"],
+    "correctAnswer": 1,
+    "explanation": "A default constructor is automatically provided by the compiler if the programmer does not define any constructor. It takes no arguments."
+  },
+  {
+    "id": "co-14",
+    "topicId": "classes-objects",
+    "question": "In Python, which method serves as the constructor of a class?",
+    "options": ["__start__", "__new__", "__init__", "__create__"],
+    "correctAnswer": 2,
+    "explanation": "In Python, '__init__' is the initializer (constructor) method called when a new object is created."
+  },
+  {
+    "id": "co-15",
+    "topicId": "classes-objects",
+    "question": "What is object state?",
+    "options": ["The class from which the object was created", "The current values of an object's attributes at a given time", "The number of methods the object has", "The memory address of the object"],
+    "correctAnswer": 1,
+    "explanation": "The state of an object refers to the current values stored in its instance variables at any point in time."
+  },
+  {
+    "id": "co-16",
+    "topicId": "classes-objects",
+    "question": "What is object behavior?",
+    "options": ["The memory layout of the object", "The access level of class members", "The actions an object can perform, defined by its methods", "The number of objects created from a class"],
+    "correctAnswer": 2,
+    "explanation": "Object behavior refers to what an object can do, which is defined by the methods of its class."
+  },
+  {
+    "id": "co-17",
+    "topicId": "classes-objects",
+    "question": "Which of the following is TRUE about static methods?",
+    "options": ["They can access instance variables directly", "They belong to an object, not the class", "They can be called without creating an object", "They must always return a value"],
+    "correctAnswer": 2,
+    "explanation": "Static methods belong to the class itself and can be called without creating an instance (object) of the class."
+  },
+  {
+    "id": "co-18",
+    "topicId": "classes-objects",
+    "question": "What is the purpose of getter and setter methods?",
+    "options": ["To create and destroy objects", "To access and modify private instance variables in a controlled way", "To inherit properties from a parent class", "To overload operators"],
+    "correctAnswer": 1,
+    "explanation": "Getters and setters provide controlled access to private attributes, enforcing encapsulation by reading and writing values through defined methods."
+  },
+  {
+    "id": "co-19",
+    "topicId": "classes-objects",
+    "question": "What happens when an object is assigned to another object variable in most OOP languages?",
+    "options": ["A deep copy of the object is created automatically", "Both variables point to the same object in memory", "The original object is deleted", "A new class is created"],
+    "correctAnswer": 1,
+    "explanation": "In most OOP languages, assigning an object to another variable copies the reference, so both variables point to the same object in memory."
+  },
+  {
+    "id": "co-20",
+    "topicId": "classes-objects",
+    "question": "Which of the following correctly describes the relationship between a class and an object?",
+    "options": ["An object is a template; a class is an instance", "A class and an object are exactly the same thing", "A class is a template; an object is an instance of that class", "A class can only have one object"],
+    "correctAnswer": 2,
+    "explanation": "A class acts as a blueprint or template, and an object is a concrete instance created from that blueprint."
+  }
 ]
