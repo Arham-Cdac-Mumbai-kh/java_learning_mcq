@@ -360,5 +360,267 @@
     "options": ["An object is a template; a class is an instance", "A class and an object are exactly the same thing", "A class is a template; an object is an instance of that class", "A class can only have one object"],
     "correctAnswer": 2,
     "explanation": "A class acts as a blueprint or template, and an object is a concrete instance created from that blueprint."
+  },
+
+  {
+    "id": "inh-01",
+    "topicId": "inheritance",
+    "question": "In Java, if class B extends class A, and both define a static method 'show()', what happens when you call show() on a reference of type A pointing to an object of type B?",
+    "options": [
+      "B's show() is called due to polymorphism",
+      "A's show() is called because static methods are resolved at compile time",
+      "A runtime error is thrown",
+      "Both A's and B's show() are called"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Static methods are NOT overridden — they are hidden. Method resolution for static methods happens at compile time based on the reference type, not the actual object type. This is called method hiding, not overriding."
+  },
+  {
+    "id": "inh-02",
+    "topicId": "inheritance",
+    "question": "Consider: class A has a constructor A(int x). Class B extends A but defines no constructor. What happens when you try to instantiate B?",
+    "options": [
+      "B is instantiated using A's constructor automatically",
+      "Compilation error — B must explicitly define a constructor calling super(int)",
+      "B gets a default no-arg constructor from the compiler",
+      "A's constructor is inherited and available directly"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Since A has no no-arg constructor, the compiler cannot auto-generate a valid super() call for B's default constructor. B must explicitly define a constructor that calls super(int x), otherwise it won't compile."
+  },
+  {
+    "id": "inh-03",
+    "topicId": "inheritance",
+    "question": "Which of the following is the correct order of constructor calls when instantiating an object of class C, where C extends B and B extends A?",
+    "options": [
+      "C() → B() → A()",
+      "A() → B() → C()",
+      "B() → A() → C()",
+      "C() → A() → B()"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Constructors are called top-down in the inheritance chain. A() runs first, then B(), then C(). This ensures each parent is fully initialized before the child constructor executes."
+  },
+  {
+    "id": "inh-04",
+    "topicId": "inheritance",
+    "question": "In C++, what is the 'diamond problem' in inheritance?",
+    "options": [
+      "When two sibling classes inherit the same interface",
+      "When a class is inherited more than 4 levels deep",
+      "When a class inherits from two classes that both inherit from a common base, causing ambiguity",
+      "When a destructor is not declared virtual in a base class"
+    ],
+    "correctAnswer": 2,
+    "explanation": "The diamond problem occurs in multiple inheritance when class D inherits from B and C, and both B and C inherit from A. D ends up with two copies of A's members, creating ambiguity. C++ resolves this with virtual inheritance."
+  },
+  {
+    "id": "inh-05",
+    "topicId": "inheritance",
+    "question": "What is the output of this Python code?\n\nclass A:\n    def greet(self):\n        return 'A'\n\nclass B(A):\n    def greet(self):\n        return 'B' + super().greet()\n\nclass C(A):\n    def greet(self):\n        return 'C' + super().greet()\n\nclass D(B, C):\n    pass\n\nprint(D().greet())",
+    "options": [
+      "'BA'",
+      "'BCA'",
+      "'BA' + 'CA'",
+      "Raises a TypeError"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Python's MRO (Method Resolution Order) follows C3 linearization: D → B → C → A. B's greet() calls super().greet() which goes to C (not A), so result is 'B' + 'C' + 'A' = 'BCA'."
+  },
+  {
+    "id": "inh-06",
+    "topicId": "inheritance",
+    "question": "In Java, which members are NOT inherited by a subclass from its superclass?",
+    "options": [
+      "public and protected methods",
+      "protected instance variables",
+      "private members and constructors",
+      "default (package-private) methods"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Private members are not accessible (effectively not inherited) in a subclass. Constructors are also never inherited — they must be explicitly called via super(). All other access-level members are inherited."
+  },
+  {
+    "id": "inh-07",
+    "topicId": "inheritance",
+    "question": "What is the Liskov Substitution Principle (LSP) in the context of inheritance?",
+    "options": [
+      "A subclass should always override all parent class methods",
+      "Objects of a subclass should be replaceable for objects of the parent class without breaking the program",
+      "A parent class should always be abstract",
+      "Inheritance should be limited to two levels deep"
+    ],
+    "correctAnswer": 1,
+    "explanation": "LSP states that if S is a subtype of T, then objects of type T may be replaced with objects of type S without altering the correctness of the program. Violating LSP (e.g., a Square overriding Rectangle's setWidth) causes unexpected behavior."
+  },
+  {
+    "id": "inh-08",
+    "topicId": "inheritance",
+    "question": "In Java, if a parent class method throws a checked exception, what constraint applies when overriding it in a subclass?",
+    "options": [
+      "The subclass method must throw the same exception",
+      "The subclass method can throw any checked exception",
+      "The subclass method can throw only the same or a narrower (subtype) checked exception, or none",
+      "The subclass method must throw a broader exception"
+    ],
+    "correctAnswer": 2,
+    "explanation": "When overriding, a subclass method can only throw the same checked exception, a subclass of it, or no exception at all. Throwing a broader checked exception violates the contract and won't compile."
+  },
+  {
+    "id": "inh-09",
+    "topicId": "inheritance",
+    "question": "What is 'constructor chaining' in inheritance?",
+    "options": [
+      "Calling multiple constructors of the same class using this()",
+      "The automatic process where each subclass constructor calls its parent constructor, forming a chain up to Object",
+      "Defining a constructor inside another constructor",
+      "Linking two separate class hierarchies"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Constructor chaining in inheritance means every subclass constructor explicitly or implicitly calls the parent's constructor using super(), creating a chain that goes all the way up to the root class (Object in Java)."
+  },
+  {
+    "id": "inh-10",
+    "topicId": "inheritance",
+    "question": "Consider a C++ class hierarchy where Base has a non-virtual destructor. A Base pointer holds a Derived object. When deleted, what happens?",
+    "options": [
+      "Both Base and Derived destructors are called correctly",
+      "Only Derived's destructor is called",
+      "Only Base's destructor is called, causing a resource leak in Derived",
+      "A compile-time error is raised"
+    ],
+    "correctAnswer": 2,
+    "explanation": "If the destructor is not virtual, deleting a Derived object through a Base pointer calls only Base's destructor. Derived's destructor is never called, which leads to resource leaks. Always declare destructors virtual in base classes."
+  },
+  {
+    "id": "inh-11",
+    "topicId": "inheritance",
+    "question": "What is the difference between method overriding and method hiding in Java?",
+    "options": [
+      "They are the same thing with different names",
+      "Overriding applies to instance methods (runtime polymorphism); hiding applies to static methods (compile-time resolution)",
+      "Hiding applies to instance methods; overriding applies to static methods",
+      "Overriding requires the 'override' keyword; hiding does not"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Instance method overriding is resolved at runtime based on the actual object type (dynamic dispatch). Static method hiding is resolved at compile time based on the reference type. They look similar in code but behave very differently."
+  },
+  {
+    "id": "inh-12",
+    "topicId": "inheritance",
+    "question": "In Python's MRO, what algorithm is used to determine method resolution order in multiple inheritance?",
+    "options": [
+      "Depth-First Search (DFS)",
+      "Breadth-First Search (BFS)",
+      "C3 Linearization",
+      "Round-robin resolution"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Python uses the C3 Linearization algorithm to compute MRO. It ensures that a class always appears before its parents, and the order of base classes in the class definition is respected. You can inspect it with ClassName.__mro__."
+  },
+  {
+    "id": "inh-13",
+    "topicId": "inheritance",
+    "question": "Can an abstract class in Java have a constructor? If yes, when is it called?",
+    "options": [
+      "No, abstract classes cannot have constructors",
+      "Yes, but only if the class has at least one concrete method",
+      "Yes, it is called via super() when a concrete subclass is instantiated",
+      "Yes, but it can only be called using reflection"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Abstract classes CAN have constructors. They cannot be called directly (you can't instantiate abstract classes), but they ARE called via super() when a concrete subclass is instantiated, ensuring proper initialization of the abstract class's fields."
+  },
+  {
+    "id": "inh-14",
+    "topicId": "inheritance",
+    "question": "What is the key design implication of favouring 'composition over inheritance'?",
+    "options": [
+      "You should never use inheritance in modern OOP",
+      "Inheritance should only be used with interfaces",
+      "Inheritance creates tight coupling between parent and child; composition allows flexible behavior changes at runtime without modifying class hierarchies",
+      "Composition is faster at runtime than inheritance"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Inheritance tightly couples child to parent — changes in the parent ripple down. Composition (HAS-A) lets you swap behaviors at runtime and avoids fragile base class problems. The GoF Design Patterns book specifically recommends preferring composition."
+  },
+  {
+    "id": "inh-15",
+    "topicId": "inheritance",
+    "question": "In Java, what does it mean for a method to be 'covariant' in return type during overriding?",
+    "options": [
+      "The overriding method must return the exact same type as the parent method",
+      "The overriding method can return a subtype of the return type declared in the parent method",
+      "The overriding method can return any type",
+      "The return type must be widened in the subclass"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Since Java 5, overriding methods can return a subtype of the parent method's return type. For example, if the parent returns Animal, the overriding method can return Dog (if Dog extends Animal). This is called covariant return type."
+  },
+  {
+    "id": "inh-16",
+    "topicId": "inheritance",
+    "question": "Which scenario represents a clear violation of proper inheritance (IS-A relationship)?",
+    "options": [
+      "class Dog extends Animal",
+      "class ElectricCar extends Car",
+      "class Stack extends Vector (as in Java's original Stack class)",
+      "class Manager extends Employee"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Java's Stack extending Vector is a classic design mistake. A Stack IS-NOT-A Vector — it should only allow push/pop, but inheriting Vector exposes get(index), add(index, element), etc., breaking the Stack abstraction. Composition would have been correct here."
+  },
+  {
+    "id": "inh-17",
+    "topicId": "inheritance",
+    "question": "What is the 'fragile base class' problem in inheritance?",
+    "options": [
+      "A base class with too many abstract methods",
+      "Changes to a base class unexpectedly break the behavior of subclasses that depend on it",
+      "A base class that cannot be instantiated",
+      "A base class with private constructors"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The fragile base class problem occurs when seemingly safe modifications to a base class cause subclasses to malfunction. Since subclasses depend heavily on the internal behavior of the base, any change can have cascading, hard-to-predict effects."
+  },
+  {
+    "id": "inh-18",
+    "topicId": "inheritance",
+    "question": "In Java, if class A implements interface I, and class B extends A but does NOT implement I, does B satisfy interface I?",
+    "options": [
+      "No, B must explicitly declare 'implements I'",
+      "Yes, B inherits A's implementation of I and satisfies the interface",
+      "Only if B overrides all methods of I",
+      "Only at runtime through reflection"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Since B extends A, and A implements I, B inherits all of A's method implementations. B implicitly satisfies interface I without needing to redeclare it. A reference of type I can hold a B object."
+  },
+  {
+    "id": "inh-19",
+    "topicId": "inheritance",
+    "question": "What distinguishes 'protected' access in the context of inheritance across packages in Java?",
+    "options": [
+      "Protected members are accessible to all classes in any package",
+      "Protected members are accessible only within the same class",
+      "Protected members are accessible within the same package AND subclasses in different packages, but only through inheritance",
+      "Protected members behave identically to private members outside a package"
+    ],
+    "correctAnswer": 2,
+    "explanation": "In Java, 'protected' allows access within the same package (like default) AND from subclasses in different packages, but ONLY through the inherited reference — not through a parent class reference in the subclass."
+  },
+  {
+    "id": "inh-20",
+    "topicId": "inheritance",
+    "question": "When should you use inheritance vs interfaces in a well-designed OOP system?",
+    "options": [
+      "Always use inheritance; interfaces are only for legacy code",
+      "Use inheritance for IS-A relationships with shared implementation; use interfaces to define contracts/capabilities that unrelated classes can fulfil",
+      "Use interfaces only when working with abstract classes",
+      "Use inheritance for runtime polymorphism and interfaces only for compile-time checks"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Inheritance suits true IS-A relationships where shared state and behavior are reused (e.g., Dog extends Animal). Interfaces define capabilities (e.g., Flyable, Serializable) that can be applied to any class regardless of its hierarchy, promoting flexibility and loose coupling."
   }
 ]
+
