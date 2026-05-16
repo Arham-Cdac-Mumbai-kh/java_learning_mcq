@@ -14,8 +14,14 @@
     "email": "aaaajjjafri@gmail.com",
     "password": "$2a$10$XJisK.zxlDTAxG5TOkxto.Sx54QEFixYBUSAQYa1dNlBG/gT9ULUS",
     "role": "admin",
-    "progress": {},
-    "completedQuizzes": []
+    "progress": {
+      "classes-objects": 100,
+      "oop-basics": 82
+    },
+    "completedQuizzes": [
+      "1778663393154",
+      "1778663496192"
+    ]
   },
   {
     "id": "1778651214605",

@@ -1,1 +1,20 @@
-[]
+[
+  {
+    "id": "1778663393154",
+    "userId": "1778649903011",
+    "topicId": "classes-objects",
+    "score": 1,
+    "totalQuestions": 1,
+    "percentage": 100,
+    "submittedAt": "2026-05-13T09:09:53.154Z"
+  },
+  {
+    "id": "1778663496192",
+    "userId": "1778649903011",
+    "topicId": "oop-basics",
+    "score": 18,
+    "totalQuestions": 22,
+    "percentage": 82,
+    "submittedAt": "2026-05-13T09:11:36.192Z"
+  }
+]
