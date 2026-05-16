@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
+const { connectDb } = require('./config/db');
 require('dotenv').config();
 
 const app = express();
@@ -39,6 +40,12 @@ app.get('/api/health', (req, res) => {
     res.json({ status: 'UP', message: 'Java OOP Learning Server is running' });
 });
 
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-});
+const startServer = async () => {
+    await connectDb();
+
+    app.listen(PORT, () => {
+        console.log(`Server is running on port ${PORT}`);
+    });
+};
+
+startServer();

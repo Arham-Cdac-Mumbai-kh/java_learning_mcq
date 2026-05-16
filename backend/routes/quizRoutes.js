@@ -2,6 +2,9 @@ const express = require('express');
 const router = express.Router();
 const db = require('../utils/jsonDb');
 const authMiddleware = require('../middleware/authMiddleware');
+const { isMongoConnected } = require('../config/db');
+const User = require('../models/User');
+const Quiz = require('../models/Quiz');
 
 router.post('/submit', authMiddleware, async (req, res) => {
     try {
@@ -14,6 +17,41 @@ router.post('/submit', authMiddleware, async (req, res) => {
         const percentage = totalQuestions > 0
             ? Math.round((score / totalQuestions) * 100)
             : 0;
+
+        if (isMongoConnected()) {
+            const user = await User.findById(req.user.id);
+
+            if (!user) {
+                return res.status(404).json({ message: 'User not found' });
+            }
+
+            const quizResult = await Quiz.create({
+                userId: user._id,
+                topicId,
+                score,
+                totalQuestions,
+                percentage
+            });
+
+            const currentProgress = user.progress?.get(topicId) || 0;
+            user.progress.set(topicId, Math.max(currentProgress, percentage));
+            user.completedQuizzes.push(quizResult._id.toString());
+            await user.save();
+
+            return res.status(201).json({
+                message: 'Quiz submitted successfully',
+                quiz: {
+                    id: quizResult._id.toString(),
+                    userId: user._id.toString(),
+                    topicId,
+                    score,
+                    totalQuestions,
+                    percentage,
+                    submittedAt: quizResult.createdAt
+                },
+                progress: Object.fromEntries(user.progress)
+            });
+        }
 
         const quizzes = await db.read('quizzes');
         const users = await db.read('users');
