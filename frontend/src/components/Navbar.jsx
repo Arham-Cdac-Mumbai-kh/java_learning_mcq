@@ -12,7 +12,7 @@ const Navbar = () => {
   return (
     <nav className="sticky top-0 z-40 bg-white/85 dark:bg-slate-950/85 backdrop-blur-xl border-b border-slate-200/80 dark:border-slate-800 px-4 py-3">
       <div className="container mx-auto flex justify-between items-center">
-        <Link to="/" className="flex items-center gap-3 text-xl font-black text-slate-950 dark:text-white">
+        <Link to={user ? "/dashboard" : "/"} className="flex items-center gap-3 text-xl font-black text-slate-950 dark:text-white">
           <span className="grid h-10 w-10 place-items-center rounded-lg bg-slate-950 text-primary-400 dark:bg-primary-500 dark:text-slate-950">
             <BookOpen size={23} />
           </span>
