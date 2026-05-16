@@ -71,8 +71,17 @@ const seedData = async () => {
                     }
                     return quizWithoutId;
                 });
+            } else if (collection === 'topics') {
+                // For topics, we MUST keep the 'id' field because the model requires it as a slug
+                data = data.map(topic => {
+                    const { id, ...rest } = topic;
+                    return {
+                        id: id, // Explicitly keep the slug ID
+                        ...rest
+                    };
+                });
             } else {
-                // For other collections, just remove the JSON id
+                // For other collections (like MCQs), just remove the generic JSON id
                 data = data.map(({ id, ...rest }) => rest);
             }
 
