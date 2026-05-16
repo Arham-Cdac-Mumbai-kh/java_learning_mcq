@@ -29,6 +29,7 @@ const topicRoutes = require('./routes/topicRoutes');
 const mcqRoutes = require('./routes/mcqRoutes');
 const adminRoutes = require('./routes/adminRoutes');
 const quizRoutes = require('./routes/quizRoutes');
+const { seedData } = require('./seed');
 
 app.use('/api/auth', authRoutes);
 app.use('/api/topics', topicRoutes);
@@ -42,6 +43,15 @@ app.get('/api/health', (req, res) => {
 
 const startServer = async () => {
     await connectDb();
+
+    // Temporary: Seed the database on startup
+    try {
+        console.log('Running seed data script...');
+        await seedData();
+        console.log('Database seeded successfully!');
+    } catch (err) {
+        console.error('Seeding failed, but continuing to start server:', err);
+    }
 
     app.listen(PORT, '0.0.0.0', () => {
         console.log(`Server is running on port ${PORT}`);
