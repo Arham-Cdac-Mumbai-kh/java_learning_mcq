@@ -9,6 +9,16 @@ const Mcq = require('./models/Mcq');
 const User = require('./models/User');
 const Quiz = require('./models/Quiz');
 
+const mongoose = require('mongoose');
+const fs = require('fs');
+const path = require('path');
+const { connectDb } = require('./config/db');
+
+const Topic = require('./models/Topic');
+const Mcq = require('./models/Mcq');
+const User = require('./models/User');
+const Quiz = require('./models/Quiz');
+
 const seedData = async () => {
     try {
         await connectDb();
@@ -28,18 +38,53 @@ const seedData = async () => {
             quizzes: Quiz,
         };
 
-        for (const [collection, filePath] of Object.entries(dataFiles)) {
-            const fullPath = path.join(__dirname, filePath);
-            if (!fs.existsSync(fullPath)) {
-                console.log(`Skipping ${collection}: File not found at ${fullPath}`);
-                continue;
-            }
+        // 1. Clean all collections first
+        for (const collection of Object.keys(models)) {
+            console.log(`Cleaning ${collection} collection...`);
+            await models[collection].deleteMany({});
+        }
 
-            const data = JSON.parse(fs.readFileSync(fullPath, 'utf8'));
+        // 2. Seed Users first to build ID mapping
+        const usersPath = path.join(__dirname, dataFiles.users);
+        const userData = JSON.parse(fs.readFileSync(usersPath, 'utf8'));
+        const userMap = {}; // { jsonId: mongoId }
+
+        console.log(`Seeding users with ${userData.length} items...`);
+        for (const user of userData) {
+            const jsonId = user.id;
+            const { id, ...userWithoutId } = user; // Remove JSON id
+            const createdUser = await User.create(userWithoutId);
+            userMap[jsonId] = createdUser._id;
+        }
+        console.log('Successfully seeded users.');
+
+        // 3. Seed other collections
+        const remainingCollections = ['topics', 'mcqs', 'quizzes'];
+        for (const collection of remainingCollections) {
+            const filePath = path.join(__dirname, dataFiles[collection]);
+            if (!fs.existsSync(filePath)) continue;
+
+            let data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
             const model = models[collection];
 
-            console.log(`Cleaning ${collection} collection...`);
-            await model.deleteMany({});
+            // Data transformation for Quiz relationships
+            if (collection === 'quizzes') {
+                data = data.map(quiz => {
+                    const { id, ...quizWithoutId } = quiz;
+                    // Replace JSON userId with actual MongoDB ObjectId
+                    if (quizWithoutId.userId && userMap[quizWithoutId.userId]) {
+                        quizWithoutId.userId = userMap[quizWithoutId.userId];
+                    } else {
+                        // Fallback: assign to first user if mapping fails to avoid validation error
+                        const firstUser = Object.values(userMap)[0];
+                        quizWithoutId.userId = firstUser || new mongoose.Types.ObjectId();
+                    }
+                    return quizWithoutId;
+                });
+            } else {
+                // For other collections, just remove the JSON id
+                data = data.map(({ id, ...rest }) => rest);
+            }
 
             console.log(`Seeding ${collection} with ${data.length} items...`);
             await model.insertMany(data);
