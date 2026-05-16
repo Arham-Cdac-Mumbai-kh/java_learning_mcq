@@ -9,16 +9,6 @@ const Mcq = require('./models/Mcq');
 const User = require('./models/User');
 const Quiz = require('./models/Quiz');
 
-const mongoose = require('mongoose');
-const fs = require('fs');
-const path = require('path');
-const { connectDb } = require('./config/db');
-
-const Topic = require('./models/Topic');
-const Mcq = require('./models/Mcq');
-const User = require('./models/User');
-const Quiz = require('./models/Quiz');
-
 const seedData = async () => {
     try {
         await connectDb();
