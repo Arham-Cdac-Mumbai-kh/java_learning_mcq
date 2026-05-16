@@ -43,7 +43,7 @@ app.get('/api/health', (req, res) => {
 const startServer = async () => {
     await connectDb();
 
-    app.listen(PORT, () => {
+    app.listen(PORT, '0.0.0.0', () => {
         console.log(`Server is running on port ${PORT}`);
     });
 };
