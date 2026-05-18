@@ -7,6 +7,6 @@ const McqSchema = new mongoose.Schema({
     options: [String],
     correctAnswer: { type: Number, required: true },
     explanation: { type: String },
-});
+}, { id: false });
 
 module.exports = mongoose.model('Mcq', McqSchema);

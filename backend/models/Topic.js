@@ -9,6 +9,6 @@ const TopicSchema = new mongoose.Schema({
     codeSnippets: { type: String },
     interviewQuestions: [String],
     practiceQuestions: [String],
-});
+}, { id: false });
 
 module.exports = mongoose.model('Topic', TopicSchema);
